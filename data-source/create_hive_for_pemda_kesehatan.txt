@@ -1,0 +1,70 @@
+CREATE EXTERNAL TABLE ds_prod.faskes_jateng (
+    wilayah STRING,
+    tahun INT,
+    rumah_sakit_umum INT,
+    rumah_sakit_khusus INT,
+    puskesmas_rawat_inap INT,
+    puskesmas_non_rawat_inap INT,
+    klinik_pratama INT,
+    posyandu INT,
+    execute_time DATE
+)
+STORED AS ORC
+LOCATION '/hive_external_data/ds_pemda/kesehatan/jawa_tengah/faskes';
+
+-----------------------------------------------------------------------------
+CREATE EXTERNAL TABLE ds_prod.jumlah_bayi_bblr_gizi_buruk_jateng (
+    wilayah STRING,
+    tahun INT,
+    jumlah_bayi_lahir INT,
+    jumlah_bayi_bblr INT,
+    jumlah_kurang_gizi INT,
+    execute_time DATE
+)
+STORED AS ORC
+LOCATION '/hive_external_data/ds_pemda/kesehatan/jawa_tengah/jumlah_bayi_bblr_gizi_buruk';
+
+--------------------------------------------------------------------------------
+CREATE EXTERNAL TABLE ds_prod.jumlah_penyakit_berdasarkan_jenis_jateng (
+    wilayah STRING,
+    tahun INT,
+    angka_penemuan_tbc_per_100000_penduduk INT,
+    jumlah_kasus_baru_aids INT,
+    penemuan_kasus_baru_kusta_per_100000_penduduk FLOAT,
+    angka_kesakitan_malaria_per_1000_penduduk FLOAT,
+    angka_kesakitan_dbd_per_100000_penduduk FLOAT,
+    execute_time DATE
+)
+STORED AS ORC
+LOCATION '/hive_external_data/ds_pemda/kesehatan/jawa_tengah/jumlah_penyakit_berdasarkan_jenis';
+
+drop table ds_prod.jumlah_penyakit_berdasarkan_jenis_jateng;
+
+----------------------------------------------------------------------------------
+
+CREATE EXTERNAL TABLE ds_prod.nakes_jateng (
+    wilayah STRING,
+    tahun INT,
+    dokter INT,
+    perawat INT,
+    bidan INT,
+    kefarmasian INT,
+    tenaga_gizi INT,
+    execute_time DATE
+)
+STORED AS ORC
+LOCATION '/hive_external_data/ds_pemda/kesehatan/jawa_tengah/nakes';
+
+----------------------------------------------------------------------------------
+
+CREATE EXTERNAL TABLE ds_prod.penduduk_miskin_jateng (
+    wilayah STRING,
+    tahun INT,
+    garis_kemiskinan_maret_rp INT,
+    jumlah_penduduk_miskin_maret_ribu_jiwa FLOAT,
+    jumlah_penduduk_ribu_jiwa FLOAT,
+    persentase_penduduk_miskin_maret FLOAT,
+    execute_time DATE
+)
+STORED AS ORC
+LOCATION '/hive_external_data/ds_pemda/kesehatan/jawa_tengah/penduduk_miskin';
